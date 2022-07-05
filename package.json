@@ -7929,7 +7929,7 @@
 				"when": "kb-macro.recording && terminalFocus && terminalHasBeenCreated || kb-macro.recording && terminalFocus && terminalProcessSupported"
 			},
 			{
-				"key": "ctrl+alt+w",
+				"key": "ctrl+alt+r",
 				"command": "kb-macro.startRecording",
 				"when": "!kb-macro.recording && config.keyboardMacro.recordingShortcuts == 'Option1'"
 			},
