@@ -1,0 +1,96 @@
+{
+    "base": {
+        "type": "url",
+        "url": "https://github.com/whitphx/vscode-emacs-mcx/raw/v0.44.0/package.json"
+    },
+    "awaitOptions": [
+        [ "emacs-mcx.forwardChar", "selection" ],
+        [ "emacs-mcx.backwardChar", "selection" ],
+        [ "emacs-mcx.nextLine", "selection" ],
+        [ "emacs-mcx.previousLine", "selection" ],
+        [ "emacs-mcx.forwardWord", "selection" ],
+        [ "emacs-mcx.backwardWord", "selection" ],
+        [ "emacs-mcx.moveEndOfLine", "selection" ],
+        [ "emacs-mcx.moveBeginningOfLine", "selection" ],
+        [ "emacs-mcx.backToIndentation", "selection" ],
+        [ "emacs-mcx.scrollUpCommand", "selection" ],
+        [ "emacs-mcx.scrollDownCommand", "selection" ],
+        [ "emacs-mcx.backwardParagraph", "selection" ],
+        [ "emacs-mcx.forwardParagraph", "selection" ],
+        [ "emacs-mcx.endOfBuffer", "selection" ],
+        [ "emacs-mcx.beginningOfBuffer", "selection" ],
+
+        [ "emacs-mcx.isearchForward", "" ],
+        [ "emacs-mcx.isearchBackward", "" ],
+        [ "emacs-mcx.isearchForwardRegexp", "" ],
+        [ "emacs-mcx.isearchBackwardRegexp", "" ],
+        [ "emacs-mcx.queryReplace", "" ],
+        [ "emacs-mcx.queryReplaceRegexp", "" ],
+
+        [ "emacs-mcx.recenterTopBottom", "" ],
+
+        [ "emacs-mcx.addSelectionToNextFindMatch", "selection" ],
+        [ "emacs-mcx.addSelectionToPreviousFindMatch", "selection" ],
+        [ "emacs-mcx.isearchAbort", "selection" ],
+        [ "emacs-mcx.setMarkCommand", "[editorHasSelection]selection" ],
+        [ "emacs-mcx.exchangePointAndMark", "selection" ],
+        [ "emacs-mcx.rectangleMarkMode", "[editorHasSelection]selection" ],
+
+        [ "emacs-mcx.typeChar", "document selection" ],
+        [ "emacs-mcx.newLine", "document selection" ],
+        [ "emacs-mcx.delete*", "document selection" ],
+        [ "emacs-mcx.deleteForwardChar", "document [editorHasSelection]selection" ],
+        [ "emacs-mcx.openRectangle", "document selection" ],
+        [ "emacs-mcx.clearRectangle", "document selection" ],
+        [ "emacs-mcx.stringRectangle", "document selection" ],
+        [ "emacs-mcx.replaceKillRingToRectangle", "document selection" ],
+
+        [ "emacs-mcx.paredit.forwardSexp", "selection" ],
+        [ "emacs-mcx.paredit.backwardSexp", "selection" ],
+        [ "emacs-mcx.paredit.markSexp", "selection" ],
+        [ "emacs-mcx.paredit.killSexp", "document selection clipboard" ],
+        [ "emacs-mcx.paredit.backwardKillSexp", "document selection clipboard" ],
+
+        [ "emacs-mcx.kill*", "document selection clipboard" ],
+        [ "emacs-mcx.killWord", "document clipboard" ],
+        [ "emacs-mcx.backwardKillWord", "document selection clipboard" ],
+        [ "emacs-mcx.copyRegion", "selection clipboard" ],
+        [ "emacs-mcx.copyRectangleAsKill", "selection clipboard" ],
+        [ "emacs-mcx.yank*", "document selection" ],
+
+        [ "emacs-mcx.cancel", "[editorHasSelection]selection" ],
+        [ "emacs-mcx.isearchExit", "document selection" ],
+        [ "emacs-mcx.executeCommands", "document selection" ]
+    ],
+    "footer": [
+        {
+            "key": "ctrl+x shift+9",
+            "command": "kb-macro.startRecording",
+            "when": "!kb-macro.recording"
+        },
+        {
+            "key": "ctrl+x shift+0",
+            "command": "kb-macro.finishRecording",
+            "when": "kb-macro.recording"
+        },
+        {
+            "key": "ctrl+x e",
+            "command": "kb-macro.playback",
+            "when": "!kb-macro.recording"
+        },
+        {
+            "key": "ctrl+x e",
+            "command": "emacs-mcx.executeCommandWithPrefixArgument",
+            "args": {
+                "command": "kb-macro.playback",
+                "prefixArgumentKey": "repeat"
+            },
+            "when": "!kb-macro.recording && emacs-mcx.prefixArgumentExists"
+        },
+        {
+            "key": "ctrl+g",
+            "command": "kb-macro.abortPlayback",
+            "when": "kb-macro.playing"
+        }
+    ]
+}

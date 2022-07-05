@@ -1,0 +1,123 @@
+{
+    "baseKeybindings": [
+        {
+            "path": "generator/default-keybindings-win.json",
+            "context": "isWindows"
+        },
+        {
+            "path": "generator/default-keybindings-linux.json",
+            "context": "isLinux"
+        },
+        {
+            "path": "generator/default-keybindings-mac.json",
+            "context": "isMac"
+        }
+    ],
+    "exclusion": [
+        "workbench.action.showCommands",
+        "showPrevParameterHint",
+        "showNextParameterHint",
+        "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+        "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup",
+        "workbench.action.quickOpenNavigateNextInEditorPicker",
+        "workbench.action.quickOpenNavigatePreviousInEditorPicker"
+    ],
+    "awaitOptions": [
+        [ "editor.action.clipboardCopyAction", "clipboard" ],
+        [ "editor.action.clipboardCutAction", "document [!kb-macro.headOfLine]selection clipboard" ],
+        [ "editor.action.clipboardPasteAction", "document selection" ]
+    ],
+    "recordOptions": [
+        [ "editor.action.inlineSuggest.showNext", "side-effect" ],
+        [ "editor.action.inlineSuggest.showPrevious", "side-effect" ],
+        [ "editor.action.inlineSuggest.commit", "side-effect" ],
+        [ "editor.action.inlineSuggest.hide", "side-effect" ],
+        [ "editor.action.inlineSuggest.trigger", "side-effect" ],
+
+        [ "editor.action.triggerSuggest", "side-effect" ],
+        [ "hideSuggestWidget", "side-effect" ],
+        [ "insertNextSuggestion", "side-effect" ],
+        [ "insertPrevSuggestion", "side-effect" ],
+        [ "selectFirstSuggestion", "side-effect" ],
+        [ "selectLastSuggestion", "side-effect" ],
+        [ "selectNextSuggestion", "side-effect" ],
+        [ "selectPrevSuggestion", "side-effect" ],
+        [ "selectNextPageSuggestion", "side-effect" ],
+        [ "selectPrevPageSuggestion", "side-effect" ],
+        [ "toggleExplainMode", "side-effect" ],
+        [ "toggleSuggestionDetails", "side-effect" ],
+        [ "toggleSuggestionFocus", "side-effect" ],
+        [ "acceptSelectedSuggestion", "side-effect" ],
+        [ "acceptSelectedSuggestionOnEnter", "side-effect" ],
+        [ "acceptAlternativeSelectedSuggestion", "side-effect" ],
+        [ "editor.action.resetSuggestSize", "side-effect" ],
+
+        [ "insertSnippet", "side-effect" ],
+        [ "acceptSnippet", "side-effect" ],
+        [ "leaveSnippet", "side-effect" ],
+        [ "editor.action.insertSnippet", "side-effect" ],
+        [ "editor.action.showSnippets", "side-effect" ],
+        [ "jumpToNextSnippetPlaceholder", "side-effect" ],
+        [ "jumpToPrevSnippetPlaceholder", "side-effect" ]
+    ],
+    "header": [
+        {
+            "key": "enter",
+            "command": "kb-macro.wrap",
+            "args": {
+                "command": "type",
+                "args": {
+                    "text": "\n"
+                }
+            },
+            "when": "kb-macro.recording && editorTextFocus && !editorReadonly && !suggestWidgetVisible && !renameInputVisible"
+        }
+    ],
+    "footer": [
+        {
+            "key": "ctrl+alt+r",
+            "command": "kb-macro.startRecording",
+            "when": "!kb-macro.recording && config.keyboardMacro.recordingShortcuts == 'Option1'"
+        },
+        {
+            "key": "ctrl+alt+r",
+            "command": "kb-macro.finishRecording",
+            "when": "kb-macro.recording && config.keyboardMacro.recordingShortcuts == 'Option1'"
+        },
+        {
+            "key": "ctrl+alt+p",
+            "command": "kb-macro.playback",
+            "when": "!kb-macro.recording && config.keyboardMacro.recordingShortcuts == 'Option1'"
+        },
+        {
+            "key": "ctrl+alt+p",
+            "command": "kb-macro.cancelRecording",
+            "when": "kb-macro.recording && config.keyboardMacro.recordingShortcuts == 'Option1'"
+        },
+        {
+            "key": "ctrl+shift+alt+r",
+            "command": "kb-macro.startRecording",
+            "when": "!kb-macro.recording && config.keyboardMacro.recordingShortcuts == 'Option2'"
+        },
+        {
+            "key": "ctrl+shift+alt+r",
+            "command": "kb-macro.finishRecording",
+            "when": "kb-macro.recording && config.keyboardMacro.recordingShortcuts == 'Option2'"
+        },
+        {
+            "key": "ctrl+shift+alt+p",
+            "command": "kb-macro.playback",
+            "when": "!kb-macro.recording && config.keyboardMacro.recordingShortcuts == 'Option2'"
+        },
+        {
+            "key": "ctrl+shift+alt+p",
+            "command": "kb-macro.cancelRecording",
+            "when": "kb-macro.recording && config.keyboardMacro.recordingShortcuts == 'Option2'"
+        },
+        {
+            "key": "escape",
+            "command": "kb-macro.abortPlayback",
+            "when": "kb-macro.playing"
+        }
+    ]
+}
